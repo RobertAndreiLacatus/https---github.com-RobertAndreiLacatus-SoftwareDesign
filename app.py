@@ -9,6 +9,9 @@ from functools import partial
 
 from PIL import ImageTk, Image
 
+from Registerpage import RegisterPage
+
+
 
 #Define our interface
 
@@ -17,12 +20,22 @@ tkLogin.geometry('500x500')
 tkLogin.title('GMY Login Page')
 #set the background
 #imageBackground=Image.open('C:/Robert Andrei/Facultate/FEUP/Software Design/Source code/background.png')
-#Backgrooundresize=imageBackground.resize((700,700)) #The resize is made before ImageTk 
+#Backgrooundresize=imageBackground.resize((700,700)) #The resize is made before ImageTk
 #bg=ImageTk.PhotoImage(Backgrooundresize)
 
 
 #labelBack=Label(tkLogin,image=bg)
 #labelBack.place(x=0,y=0)
+
+#Add the Logo
+
+
+Logo=Image.open('C:\Robert Andrei\Facultate\FEUP\Software Design\Source code\Logo2.png')
+LogoResiz=Logo.resize((100,100))
+LogoRend=ImageTk.PhotoImage(LogoResiz)
+LogoLabel=Label(bg='#C97E48',image=LogoRend)
+
+LogoLabel.pack()
 
 tkLogin.configure(bg='#C97E48')
 
@@ -47,7 +60,7 @@ passwordEntry=Entry(tkLogin,textvariable=password)
 passwordEntry.place(relx=0.5,rely=0.6,anchor=CENTER)
 
 
-
+#This method  is used to create a new window after we press the Login button
 def openNewWindow():
     newWindow=Toplevel(tkLogin)
     newWindow.title('New Window')
@@ -57,13 +70,23 @@ def openNewWindow():
 
     Label(newWindow,text='This is a new window').pack()
 
+   
 
+#This method will help us opening the register page which was created by the Registerpage class (Registerpage.py)
+def ForRegister():
+    
+    pageR=RegisterPage()
+    pageR.page()
+   
 #Create the Login button
 
 Loginbtn=Button(tkLogin,text='Login',bd='5',command=openNewWindow)
 Loginbtn.place(relx=0.45,rely=0.8)
 
-Registerbtn=Button(tkLogin,text='Register',bd='5')
+Registerbtn=Button(tkLogin,text='Register',bd='5',command=ForRegister)
 Registerbtn.place(relx=0.44,rely=0.9)
 
 tkLogin.mainloop()
+
+
+
