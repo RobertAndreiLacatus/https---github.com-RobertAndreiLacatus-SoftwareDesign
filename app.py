@@ -1,7 +1,7 @@
 import sys
 print(sys.executable)
 
-import tkinter
+import tkinter as tk
 
 from tkinter import *
 
@@ -37,15 +37,23 @@ LogoLabel=Label(bg='#C97E48',image=LogoRend)
 
 LogoLabel.pack()
 
+LoginIcon=Image.open('C:\Robert Andrei\Facultate\FEUP\Software Design\Source code\SettingIcon.png')
+LoginResize=LoginIcon.resize((100,100))
+LoginRend=ImageTk.PhotoImage(LoginResize)
+LoginLabel=Label(bg='#C97E48',image=LoginRend)
+LoginLabel.place(relx=0.1,rely=0.1)
+LoginLabel.pack()
+
 tkLogin.configure(bg='#C97E48')
 
 
-title=Label(tkLogin,text='Login')
-title.place(relx=0.5,rely=0.2,anchor=CENTER)
+
+#title=Label(tkLogin,text='Login')
+#title.place(relx=0.5,rely=0.2,anchor=CENTER)
 
 #Labels and entry for usernames
 
-usernameLabel=Label(tkLogin,text='Username')
+usernameLabel=Label(tkLogin,text='Username',bg='#C97E48')
 usernameLabel.place(relx=0.3,rely=0.5,anchor=CENTER)
 username=StringVar()
 usernameEntry=Entry(tkLogin,textvariable=username)
@@ -53,11 +61,7 @@ usernameEntry.place(relx=0.5,rely=0.5,anchor=CENTER)
 
 #Labels and entry for passwords
 
-passwordLabel=Label(tkLogin,text='Password')
-passwordLabel.place(relx=0.3,rely=0.6,anchor=CENTER)
-password=StringVar()
-passwordEntry=Entry(tkLogin,textvariable=password)
-passwordEntry.place(relx=0.5,rely=0.6,anchor=CENTER)
+
 
 
 #This method  is used to create a new window after we press the Login button
@@ -70,6 +74,14 @@ def openNewWindow():
 
     Label(newWindow,text='This is a new window').pack()
 
+
+passwordLabel=Label(tkLogin,text='Password',bg='#C97E48')
+passwordLabel.place(relx=0.3,rely=0.6,anchor=CENTER)
+password=StringVar()
+passwordEntry=Entry(tkLogin,textvariable=password)
+passwordEntry.place(relx=0.5,rely=0.6,anchor=CENTER)
+
+
    
 
 #This method will help us opening the register page which was created by the Registerpage class (Registerpage.py)
@@ -80,11 +92,28 @@ def ForRegister():
    
 #Create the Login button
 
-Loginbtn=Button(tkLogin,text='Login',bd='5',command=openNewWindow)
-Loginbtn.place(relx=0.45,rely=0.8)
+#login_btn_image=Image.open('C:/Robert Andrei/Facultate/FEUP/Software Design/Source code/LoginB.png')
+#login_btn_resize=login_btn_image.resize((100,100))
+#login_btn_rend=ImageTk.PhotoImage(login_btn_resize)
+#loginLabel=Label(bg='#C97E48',image=login_btn_rend)
+#loginLabel.pack()
 
-Registerbtn=Button(tkLogin,text='Register',bd='5',command=ForRegister)
-Registerbtn.place(relx=0.44,rely=0.9)
+
+photoLogin=PhotoImage(file=r"C:\Robert Andrei\Facultate\FEUP\Software Design\Source code\LoginB.png")
+photoImageLogin=photoLogin.subsample(5,5)
+
+
+photoRegister=PhotoImage(file=r"C:\Robert Andrei\Facultate\FEUP\Software Design\Source code\Registernow.png")
+photoRegisterImage=photoRegister.subsample(6,6)
+
+
+Loginbtn=tk.Button(tkLogin,image=photoImageLogin,text='Login',bd='0',command=openNewWindow,bg="#C97E48",anchor=CENTER)
+Loginbtn.place(relx=0.5,rely=0.7,anchor=CENTER) #side- the place where we want to place the LoginBtn and pady= distance from the margin to the button
+
+
+Registerbtn=tk.Button(tkLogin,text='Register',image=photoRegisterImage,bd='0',command=ForRegister,bg="#C97E48",anchor=CENTER)
+Registerbtn.place(relx=0.5,rely=0.85,anchor=CENTER)
+
 
 tkLogin.mainloop()
 
