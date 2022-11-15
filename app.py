@@ -1,6 +1,8 @@
 import sys
 print(sys.executable)
 
+from tkinter import ttk
+
 import tkinter as tk
 
 from tkinter import *
@@ -11,6 +13,12 @@ from PIL import ImageTk, Image
 
 from Registerpage import RegisterPage
 
+from mainpage import MainPage
+
+
+from tkinter import messagebox
+
+
 
 
 #Define our interface
@@ -18,6 +26,7 @@ from Registerpage import RegisterPage
 tkLogin=Tk()
 tkLogin.geometry('500x500')
 tkLogin.title('GMY Login Page')
+
 #set the background
 #imageBackground=Image.open('C:/Robert Andrei/Facultate/FEUP/Software Design/Source code/background.png')
 #Backgrooundresize=imageBackground.resize((700,700)) #The resize is made before ImageTk
@@ -66,20 +75,23 @@ usernameEntry.place(relx=0.5,rely=0.5,anchor=CENTER)
 
 #This method  is used to create a new window after we press the Login button
 def openNewWindow():
-    newWindow=Toplevel(tkLogin)
-    newWindow.title('New Window')
-
-    newWindow.geometry('500x500')
-    newWindow.configure(bg='#C97E48')
-
-    Label(newWindow,text='This is a new window').pack()
-
+    newPage=MainPage()
+    newPage.pageMain()
+    
 
 passwordLabel=Label(tkLogin,text='Password',bg='#C97E48')
 passwordLabel.place(relx=0.3,rely=0.6,anchor=CENTER)
 password=StringVar()
-passwordEntry=Entry(tkLogin,textvariable=password)
+passwordEntry=Entry(tkLogin,textvariable=password,show='*')
 passwordEntry.place(relx=0.5,rely=0.6,anchor=CENTER)
+
+
+def loginVariables():
+    if (usernameEntry.get()=="" and passwordEntry.get()==""):
+        messagebox.showerror("Login error","Please, introduce your credentials.")
+    else:
+        openNewWindow()
+        
 
 
    
@@ -107,12 +119,16 @@ photoRegister=PhotoImage(file=r"C:\Robert Andrei\Facultate\FEUP\Software Design\
 photoRegisterImage=photoRegister.subsample(6,6)
 
 
-Loginbtn=tk.Button(tkLogin,image=photoImageLogin,text='Login',bd='0',command=openNewWindow,bg="#C97E48",anchor=CENTER)
+Loginbtn=tk.Button(tkLogin,image=photoImageLogin,text='Login',bd='0',command=loginVariables,bg="#C97E48",anchor=CENTER)
 Loginbtn.place(relx=0.5,rely=0.7,anchor=CENTER) #side- the place where we want to place the LoginBtn and pady= distance from the margin to the button
 
 
 Registerbtn=tk.Button(tkLogin,text='Register',image=photoRegisterImage,bd='0',command=ForRegister,bg="#C97E48",anchor=CENTER)
 Registerbtn.place(relx=0.5,rely=0.85,anchor=CENTER)
+
+
+
+
 
 
 tkLogin.mainloop()
