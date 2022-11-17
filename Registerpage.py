@@ -105,12 +105,16 @@ class RegisterPage:
             #Loop thru results
             print_dd=''
             print(dd)
-
+            file1=open("dataapp.txt","w")
             for record in dd:
                 print_dd +=str(record) + "\n"
+               
 
             query_label=Label(Register,text=print_dd)
             query_label.grid(row=8,column=0,columnspan=2)
+            file1.write(print_dd)
+            file1.close()
+
 
 
 
