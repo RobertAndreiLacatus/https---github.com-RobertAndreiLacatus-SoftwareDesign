@@ -56,6 +56,7 @@ class RegisterPage:
         Register=tk.Toplevel()
         Register.geometry('500x500')
         Register.title('Register')
+        Register.resizable(0,0)
 
 
         Register.configure(bg='#C97E48')

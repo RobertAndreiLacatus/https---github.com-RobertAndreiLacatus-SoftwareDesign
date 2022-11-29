@@ -22,6 +22,7 @@ class QRcode():
         QRcode.geometry('300x300')
         QRcode.title('This is your QR code')
         QRcode.configure(bg='#C97E48')
+        QRcode.resizable(0,0)
 
 
         QRphoto=Image.open('C:\Robert Andrei\Facultate\FEUP\Software Design\Source code\source.png')

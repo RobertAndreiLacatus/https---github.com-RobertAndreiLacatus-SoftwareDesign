@@ -13,12 +13,10 @@ from PIL import ImageTk, Image
 
 from Registerpage import RegisterPage
 
-from firstafter import ThePage
+from firstafter import MainPage
 
 
 from tkinter import messagebox
-
-
 
 
 
@@ -80,7 +78,7 @@ class AppGym():
 
 #This method  is used to create a new window after we press the Login button
         def openNewWindow():
-            newPage=ThePage()
+            newPage=MainPage()
             newPage.pageMain()
     
 
@@ -95,9 +93,7 @@ class AppGym():
             if (usernameEntry.get()=="" and passwordEntry.get()==""):
                 messagebox.showerror("Login error","Please, introduce your credentials.")
             else:
-                tkLogin.destroy()
                 openNewWindow()
-                
         
 
 
@@ -142,6 +138,6 @@ class AppGym():
 
 
 
-AppGym.loginpage('')
+Interface.loginpage('')
 
 
