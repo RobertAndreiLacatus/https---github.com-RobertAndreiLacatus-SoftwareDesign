@@ -4,6 +4,7 @@ print(sys.executable)
 
 import tkinter as tk
 
+from tkinter import ttk
 
 from functools import partial
 
@@ -19,10 +20,8 @@ from QRcodepage import QRcode
 
 
 
-
 class ThePage():
-    def __init__(self) -> None:
-        pass
+    
     def pageMain(self):
         MainPageClass=tk.Toplevel()
         MainPageClass.geometry('500x500')
@@ -30,12 +29,33 @@ class ThePage():
         MainPageClass.resizable(0,0)
         MainPageClass.configure(bg='#C97E48')
 
+        #Create a main frame
+        #main_frame=Frame(MainPageClass)
+        #main_frame.pack(fill=BOTH,expand=1)
+        #Create canvas
+        #my_canvas=Canvas(main_frame)
+        #my_canvas.pack(side=LEFT,fill=BOTH, expand=1)
+
+
+        #Add a ScrollBar to the Canvas
+        #my_scrollbar=ttk.Scrollbar(main_frame,orient=VERTICAL)
+        #my_scrollbar.pack(side=RIGHT,fill=Y)
+
+
+        #Configure the canvas
+        #main_frame.configure(yscrollcommand=my_scrollbar.set)
+        #my_canvas.bind('<Configure>',lambda e:my_canvas.configure(scollregion=my_canvas.bbox("all")))
+
+        #Create another frame inside the canvas
+        #second_frame=Frame(my_canvas)
+        #Add that new frame to a window in the Canvas
+        #my_canvas.create_window((0,0),window=second_frame,anchor="nw")
 
         #create hamburger menu
-        
         def toggle_win():
             f1=Frame(MainPageClass,width=300,height=500,bg='#262626')
             f1.place(x=300,y=0)
+
             #create the rest of the buttons
             def bttn(x,y,text,bcolor,fcolor,cmd):
                 def on_entera(e):
@@ -55,18 +75,19 @@ class ThePage():
                 myButton1.place(x=x,y=y)
 
             def closeWindow():
-                btn=Button(MainPageClass,command=AppGym.withdraw)
-                btn.pack()
+                #newvar=createlogin.tkLogin
+                #btn=Button(MainPageClass,command=newvar.withdraw)
+                #btn.pack()
+                pass
           
 
 
-            bttn(13,80,'HOME','#0f9d9a','#14c4c0',None)
-            bttn(13,140,'TRAINER','#0f9d9a','#14c4c0',None)
-            bttn(13,200,'NUTRITIONAL PLAN','#0fd9da','#14c4c0',None)
-            bttn(13,260,'CLASSES','#0fd9da','#14c4c0',None)
+            bttn(13,140,'HOME','#0f9d9a','#14c4c0',None)
+            bttn(13,200,'SUBSCRIPTION','#0fd9da','#14c4c0',None)
+            bttn(13,260,'NUTRITIONAL PLAN','#0fd9da','#14c4c0',None)
             bttn(13,320,'PHYSICAL EVALUATION','#0fd9da','#14c4c0',None)
-            bttn(13,380,'CHOOSE GYM','#0fd9da','#14c4c0',None)
-            bttn(13,440,'LOG OUT','#0fd9da','#14c4c0',closeWindow)
+            bttn(13,380,'LOG OUT','#0fd9da','#14c4c0',closeWindow)
+           
 
             def dele():
                 f1.destroy()
@@ -101,7 +122,8 @@ class ThePage():
         LogoRend=ImageTk.PhotoImage(LogoResiz)
         LogoLabel=Label(MainPageClass,image=LogoRend)
         LogoLabel.place(relx=0,rely=0)
-      
+
+
 
         
 
@@ -113,12 +135,44 @@ class ThePage():
         Hamburgerbtn.place(relx=0.9,rely=0.1,anchor=CENTER)
 
         #This is the end of our code for the Canva area
+        
+    
+   
+
         TitleLabel=tk.Label(MainPageClass,text='Welcome to your digital gym friend',bg="#C97E48",font='Helvetica 14 bold')
         TitleLabel.place(relx=0.18,rely=0.3)
 
         QRbutton=tk.Button(MainPageClass,text='QR Code',bd='4',command=code)
         QRbutton.place(relx=0.45,rely=0.38)
+
+        photoYogaclass=PhotoImage(file=r"C:\Robert Andrei\Facultate\FEUP\Software Design\Source code\yoga.PNG")
+        photoYogaResize=photoYogaclass.subsample(2,2)
+
+        YogaLabel=tk.Label(MainPageClass,image=photoYogaResize,border=0)
+        YogaLabel.place(relx=0.1,rely=0.5)
         
-        
+        YogaText=tk.Label(MainPageClass,text='Yoga Class',border=0,bg='#C97E48', foreground='white',font=('Arial',14))
+        YogaText.place(relx=0.13,rely=0.7)
+
+        photoJoin=PhotoImage(file=r'C:\Robert Andrei\Facultate\FEUP\Software Design\Source code\JoinButton.PNG')
+        photoJoinResize=photoJoin.subsample(1,1)
+
+        JoinButton=tk.Button(MainPageClass,image=photoJoinResize,command=None,bd='0',bg="#C97E48")
+        JoinButton.place(relx=0.5,rely=0.5)
+
+        photoJogging=PhotoImage(file=r'C:\Robert Andrei\Facultate\FEUP\Software Design\Source code\Jogging.PNG')
+        photoJoggingResize=photoJogging.subsample(2,2)
+
+        JoggingLabel=tk.Label(MainPageClass,image=photoJoggingResize,border=0)
+        JoggingLabel.place(relx=0.1,rely=0.8)
+
+        JoggingText=tk.Label(MainPageClass,text='Jogging Class',border=0,bg='#C97E48', foreground='white',font=('Arial',14))
+        JoggingText.place(relx=0.13,rely=1.1)
+
+
+    
+
+    
+
         mainloop()
 
