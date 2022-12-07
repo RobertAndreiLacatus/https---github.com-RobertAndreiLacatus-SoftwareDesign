@@ -15,7 +15,7 @@ from tkinter import messagebox
 from PIL import Image, ImageTk
 
 from QRcodepage import QRcode
-
+from function import Methods
 
 
 
@@ -29,27 +29,7 @@ class ThePage():
         MainPageClass.resizable(0,0)
         MainPageClass.configure(bg='#C97E48')
 
-        #Create a main frame
-        #main_frame=Frame(MainPageClass)
-        #main_frame.pack(fill=BOTH,expand=1)
-        #Create canvas
-        #my_canvas=Canvas(main_frame)
-        #my_canvas.pack(side=LEFT,fill=BOTH, expand=1)
-
-
-        #Add a ScrollBar to the Canvas
-        #my_scrollbar=ttk.Scrollbar(main_frame,orient=VERTICAL)
-        #my_scrollbar.pack(side=RIGHT,fill=Y)
-
-
-        #Configure the canvas
-        #main_frame.configure(yscrollcommand=my_scrollbar.set)
-        #my_canvas.bind('<Configure>',lambda e:my_canvas.configure(scollregion=my_canvas.bbox("all")))
-
-        #Create another frame inside the canvas
-        #second_frame=Frame(my_canvas)
-        #Add that new frame to a window in the Canvas
-        #my_canvas.create_window((0,0),window=second_frame,anchor="nw")
+       
 
         #create hamburger menu
         def toggle_win():
@@ -74,19 +54,13 @@ class ThePage():
 
                 myButton1.place(x=x,y=y)
 
-            def closeWindow():
-                #newvar=createlogin.tkLogin
-                #btn=Button(MainPageClass,command=newvar.withdraw)
-                #btn.pack()
-                pass
-          
-
+            
 
             bttn(13,140,'HOME','#0f9d9a','#14c4c0',None)
-            bttn(13,200,'SUBSCRIPTION','#0fd9da','#14c4c0',None)
-            bttn(13,260,'NUTRITIONAL PLAN','#0fd9da','#14c4c0',None)
-            bttn(13,320,'PHYSICAL EVALUATION','#0fd9da','#14c4c0',None)
-            bttn(13,380,'LOG OUT','#0fd9da','#14c4c0',closeWindow)
+            bttn(13,200,'SUBSCRIPTION','#0fd9da','#14c4c0',Methods.openSub)
+            bttn(13,260,'NUTRITIONAL PLAN','#0fd9da','#14c4c0',Methods.openNut)
+            bttn(13,320,'PHYSICAL EVALUATION','#0fd9da','#14c4c0',Methods.openPhy)
+            bttn(13,380,'LOG OUT','#0fd9da','#14c4c0',Methods.closeWindow)
            
 
             def dele():
@@ -135,10 +109,6 @@ class ThePage():
         Hamburgerbtn.place(relx=0.9,rely=0.1,anchor=CENTER)
 
         #This is the end of our code for the Canva area
-        
-    
-   
-
         TitleLabel=tk.Label(MainPageClass,text='Welcome to your digital gym friend',bg="#C97E48",font='Helvetica 14 bold')
         TitleLabel.place(relx=0.18,rely=0.3)
 
@@ -176,3 +146,4 @@ class ThePage():
 
         mainloop()
 
+from eva2 import Nutrition

@@ -7,3 +7,6 @@
 ('aefeq', '34rewfw', 43, 'rqewrew', '2299', 7)
 ('33242werwe', 'eqwe', 232333, '41413eqw', '889898', 8)
 ('wgrw', 'wgrr', 34, 'ethtr', '787', 9)
+('egrew', 'gregewg', 'rgerger', 'ergerwgerger', 'gergreg', 10)
+('grwg', 'wgwgwg', 'ggg', 'rg', 'ggg', 11)
+('GWRRG', 'grgr', 34, 'grg', '345454', 12)

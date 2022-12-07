@@ -41,7 +41,7 @@ tkLogin.resizable(0,0)
 #labelBack=Label(tkLogin,image=bg)
 #labelBack.place(x=0,y=0)
 
-#Add the Logo
+#Add the Logojr
 
 
 Logo=Image.open('C:\Robert Andrei\Facultate\FEUP\Software Design\Source code\Logo2.png')
@@ -131,7 +131,6 @@ Loginbtn.place(relx=0.5,rely=0.7,anchor=CENTER) #side- the place where we want t
 
 Registerbtn=tk.Button(tkLogin,text='Register',image=photoRegisterImage,bd='0',command=ForRegister,bg="#C97E48",anchor=CENTER)
 Registerbtn.place(relx=0.5,rely=0.85,anchor=CENTER)
-
 
 
 
